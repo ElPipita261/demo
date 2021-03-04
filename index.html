@@ -7,14 +7,12 @@
 		<title>Demo for Weather Responsive Website Template #50442</title>
 		<meta name="description" content="Demo for Weather Responsive Website Template #50442">
 		<link rel="icon" href="https://s3sf.tmimgcdn.com/pinterest-logo.png" type="image/icon type">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-		<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="scripts/modalWindow.js"></script>
 		<script type="text/javascript" src="scripts/initialize.js"></script>
-
-
 	</head>
 
 	<body>
@@ -30,20 +28,34 @@
 										alt="WeatherInfo"></a>
 							</h1>
 							<nav>
-								<ul class="sf-menu">
-									<li class="current"><a href="index.html"><span></span>Forecasts<strong></strong></a>
-										<ul class='submenu'>
-											<li><a href="#">Today's Forecast</a></li>
-											<li><a href="#">National Outlook</a></li>
-											<li><a href="#">Alerts</a>
-												<ul class='submenu2'>
-													<li><a href="#">Fresh</a></li>
-													<li class="no_border"><a href="#">Archive</a></li>
-												</ul>
-											</li>
-											<li class="no_border"><a href="#">Severe Weather</a></li>
+								<ul id="menu">
+									<li>
+										<a href="javascript:void(0)">
+											Forecasts
+										</a>
+										<ul class="dropdown_menu">
+										  <li>
+											<a href="javascript:void(0)">today's forecast</a>
+										  </li>
+										  <li>
+											<a href="javascript:void(0)">national outlook</a>
+										  </li>
+										  <li>
+											<ul class="submenu">
+											  <li>
+												<a href="javascript:void(0)">fresh</a>
+											  </li>
+											  <li>
+												<a href="javascript:void(0)">archive</a>
+											  </li>
+											</ul>
+											<a href="javascript:void(0)">alerts<span class="arrow arrow-right"></span></a>
+										  </li>
+										  <li>
+											<a>severe weather</a>
+										  </li>
 										</ul>
-									</li>
+									  </li>
 									<li><a href="https://livedemo00.template-help.com/wt_50442/index-1.html">Climate
 											Change<strong></strong></a></li>
 									<li><a
@@ -247,3 +259,91 @@
 	</body>
 
 	</html>
+	<script>
+		$('#menu > li').hover(function() {
+		  // khi thẻ menu li bị hover thì drop down menu thuộc thẻ li đó sẽ trượt xuống(hiện)
+		  $('.dropdown_menu', this).slideDown();
+		},function() {
+		  // khi thẻ menu li bị out không hover nữa thì drop down menu thuộc thẻ li đó sẽ trượt lên(ẩn)
+		  $('.dropdown_menu', this).slideUp();
+		});
+	  
+		$('.dropdown_menu > li').hover(function() {
+		  // khi thẻ dropdown_menu li bị hover thì submenusubmenu thuộc thẻ li đó sẽ trượt xuống(hiện)
+		  $('.submenu', this).slideDown();
+		},function() {
+		  // khi thẻ dropdown_menu li bị hover thì submenusubmenu thuộc thẻ li đó sẽ trượt lên(ẩnẩn)
+		  $('.submenu', this).slideUp();
+		});
+	  </script>
+	  <style>
+	  #menu {
+		list-style: none;
+		height: 48px;
+	  }
+	  #menu li {
+		text-align: left;
+		color: #fff;
+	  }
+	  #menu li a {
+		text-decoration: none;
+		font-size: 16px;
+		display: block;
+		padding: 15px;
+		color: #fff;
+		background-color: #333;
+	  }
+	  #menu > li {
+		float: left;
+		border-right: 1px solid #fff;
+		position: relative;
+	  }
+	  #menu > li > ul.dropdown_menu {
+		position: absolute;
+		list-style: none;
+		display: none;
+		width: 200px;
+	  }
+	  #menu > li:hover > a {
+		background-color: #5C5C5C;
+	  }
+	  #menu > li:hover > ul.dropdown_menu {
+		z-index: 100;
+	  }
+	  ul.dropdown_menu > li {
+		position: relative;
+	  }
+	  ul.dropdown_menu > li > ul.submenu {
+		position: absolute;
+		display: none;
+		list-style: none;
+		width: 200px;
+		left: 200px;
+	  }
+	  ul.dropdown_menu > li:hover > a {
+		background-color: #5C5C5C !important;
+	  }
+	  ul.dropdown_menu > li:hover > ul.submenu {
+		z-index: 100;
+	  }
+	  ul.submenu > li:hover > a {
+		background-color: #5C5C5C !important;
+	  }
+	  .arrow {
+		width: 0;
+		height: 0;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: 5px;
+	  }
+	  .arrow-down {
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-top: 7px solid #fff;
+	  }
+	  .arrow-right {
+		border-top: 7px solid transparent;
+		border-bottom: 7px solid transparent;
+		border-left: 7px solid #fff;
+	  }
+	  </style>
